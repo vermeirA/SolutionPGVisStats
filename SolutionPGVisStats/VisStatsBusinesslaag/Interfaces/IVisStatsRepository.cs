@@ -14,5 +14,12 @@ namespace VisStatsBL.Interfaces
 
         bool HeeftHaven(Haven haven);
         void SchrijfHaven(Haven haven);
+
+        bool IsOpgeladen(string fileName);
+
+        List<Haven> LeesHavens();
+        List<Vissoort> LeesVissoorten();
+
+        void SchrijfStatistieken(List<VisStatsDataRecord> data, string fileName);
     }
 }

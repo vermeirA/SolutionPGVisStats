@@ -5,26 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VisStatsUI_DataUpload"
         mc:Ignorable="d"
-        Title="VisStats" Height="450" Width="800">
+        Title="VisStats" Height="250" Width="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="auto" />
+            <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
-        <Button Grid.Row="0" Grid.Column= "0" Content= "Vissoorten" Margin= "2" Click="Button_Click_Vissoorten" ></Button>
-        <Button Grid.Row="0" Grid.Column= "1" Content= "UploadDB" Margin="2" Click="Button_Click_UploadVissoorten" ></Button>
-        <Button Grid.Row="2" Grid.Column= "0" Content= "Havens" Margin="2" Click="Button_Click_Havens" ></Button>
-        <Button Grid.Row="2" Grid.Column="1" Content="UploadDB" Margin="2" Click="Button_Click_UploadHavens" ></Button>
-
-        <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="2" IsEnabled="False" Name="VissoortenFileListBox" ></ListBox>
-        <ListBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="2" IsEnabled="False" Name="HavensFileListBox" ></ListBox>
-
+        <!-- Vissoort -->
+        <Button Grid.Row="0" Grid.Column="0" Content="Vis soorten" Click="Button_Click_Vissoorten" Margin="2"/>
+        <Button Grid.Row="0" Grid.Column="1" Content="Upload vissoorten naar Databank" Click="Button_Click_UploadVissoorten" Margin="2"/>
+        <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Name="VissoortenFileListBox" Margin="2" IsEnabled="False"/>
+        <!-- Havens -->
+        <Button Grid.Row="2" Grid.Column="0" Content="Havens" Click="Button_Click_Havens" Margin="2"/>
+        <Button Grid.Row="2" Grid.Column="1" Content="Upload haven naar Databank" Click="Button_Click_UploadHavens" Margin="2"/>
+        <ListBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Name="HavensFileListBox" Margin="2" IsEnabled="False"/>
+        <!-- IsEnabled="False" zorgt ervoor dat je niet kunt schrijven in de ListBox -->
+        <!-- Stats -->
+        <Button Grid.Row="4" Grid.Column="0" Content="Statistieken" Click="Button_Click_statistieken" Margin="2"/>
+        <Button Grid.Row="4" Grid.Column="1" Content="Upload statistieken naar Databank" Click="Button_Click_UploadStatistieken" Margin="2"/>
+        <ListBox Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Name="StatistiekenFileListBox" Margin="2" IsEnabled="False"/>
     </Grid>
 </Window>

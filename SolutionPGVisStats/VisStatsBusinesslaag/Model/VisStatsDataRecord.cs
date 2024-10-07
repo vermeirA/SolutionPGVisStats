@@ -68,7 +68,6 @@ namespace VisStatsBL.Model
             }
         }
 
-        //TODO Haven
         private Haven _haven;
         public Haven Haven
         {
@@ -81,5 +80,14 @@ namespace VisStatsBL.Model
             }
         }
 
+        public VisStatsDataRecord(Vissoort soort, Haven haven, int jaar, int maand, double gewicht, double waarde)
+        {
+            Jaar = jaar;
+            Maand = maand;
+            Gewicht = gewicht;
+            Waarde = waarde;
+            Soort = soort;
+            Haven = haven;
+        }
     }
 }

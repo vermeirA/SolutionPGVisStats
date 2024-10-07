@@ -85,5 +85,23 @@ namespace VisStatsBL
 
             return havenSoorten.Values.ToList();
         }
+
+        public void UploadStatistieken(string fileName)
+        {
+            try
+            {
+                if (!visStatsRepository.IsOpgeladen(fileName))
+                {
+                    List<Vissoort> soorten = visStatsRepository.LeesVissoorten();
+                    List<Haven> havens = visStatsRepository.LeesHavens();
+                    List<VisStatsDataRecord> data = fileProcessor.LeesStatistieken(fileName, soorten, havens);
+                    visStatsRepository.SchrijfStatistieken(data, fileName);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ManagerExceptions("UploadStatistieken", ex);
+            }
+        }
     }
 }

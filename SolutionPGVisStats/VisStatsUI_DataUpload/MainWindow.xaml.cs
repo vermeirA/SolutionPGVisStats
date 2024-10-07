@@ -25,7 +25,7 @@ namespace VisStatsUI_DataUpload
 
         OpenFileDialog dialog = new OpenFileDialog();
 
-        string conn = "Data Source=LTAV\\SQLEXPRESS;Initial Catalog=VisStats;Integrated Security=True;Trust Server Certificate=True";
+        readonly string conn = "Data Source=LTAV\\SQLEXPRESS;Initial Catalog=VisStats;Integrated Security=True;Trust Server Certificate=True";
         IFileProcessor fileProcessor;
         IVisStatsRepository visStatsRepository;
         VisStatsManager visStatsManager;
@@ -92,6 +92,27 @@ namespace VisStatsUI_DataUpload
             }
 
             MessageBox.Show("Upload gereed", "HavenStats");
+        }
+
+        private void Button_Click_statistieken(object sender, RoutedEventArgs e)
+        {
+            bool? result = dialog.ShowDialog();
+            if (result == true)
+            {
+                var filenames = dialog.FileNames;
+                StatistiekenFileListBox.ItemsSource = filenames;
+                dialog.FileName = null;
+            }
+            else StatistiekenFileListBox.ItemsSource = null; //Dit gebeurd als je op 'cancel' klikt.
+        }
+
+        private void Button_Click_UploadStatistieken(object sender, RoutedEventArgs e)
+        {
+            foreach (string fileName in StatistiekenFileListBox.ItemsSource)
+            {
+                visStatsManager.UploadStatistieken(fileName);
+            }
+            MessageBox.Show("Upload gereed", "VisStats");
         }
     }
 }
